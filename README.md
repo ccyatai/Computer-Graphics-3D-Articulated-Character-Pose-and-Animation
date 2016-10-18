@@ -9,9 +9,9 @@ The first step is to model each rigid-body part (bones) of the character in a re
 For the forward kinematic algorithm, I implemented the keyboard-based user interface to enable a user to interactively adjust the joint angles by pressing some keys. In the meanwhile, I update the body-to-world transformation matrices, and then draw the articulated geometry. 
 
 For the inverse kinematic, implement an inverse kinematics solver based on a damped least-squares solver. The key part of my implementation is to solve least-square problems of the form
-J∆θ= ∆p,
+                                                              J∆θ= ∆p,
 where ∆θ are the changes of N joint angles, ∆p are the changes in M constraint positions (e.g. the link positions specifed by mouse dragging) in the world frame of reference, and J=∂p/∂θ  ∈〖R 〗^(M×N) is the Jacobian matrix. Depending on the number of position constraints, you may end up with an over-determined (M > N) or under-determined (M < N) system. The damped least-square solver will generate angle updates of the form
-∆θ=〖(J^T J+δI)〗^(-1) J^T ∆p,
+                                                    ∆θ=〖(J^T J+δI)〗^(-1) J^T ∆p,
 where δ>0 is a user-specified regularization parameter to avoid singular matrices. 
 
 Based on these algorithms and structure, you can self-design any geometry model and have fun to do any animation and posing you like running my code.
